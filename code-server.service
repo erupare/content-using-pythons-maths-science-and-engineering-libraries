@@ -1,0 +1,11 @@
+[Unit]
+Description=VSCode on the Web (cloud_user)
+After=network.target
+[Service]
+User=cloud_user
+Group=cloud_user
+Environment=NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-bundle.crt
+WorkingDirectory=/home/cloud_user
+ExecStart=/home/cloud_user/.bin/code-server --bind-addr=0.0.0.0:8080 --auth=none --extensions-dir=/home/cloud_user/.code-server/extensions --user-data-dir=/home/cloud_user/.code-server/user-data/
+[Install]
+WantedBy=multi-user.target
