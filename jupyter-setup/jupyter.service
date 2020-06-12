@@ -6,8 +6,8 @@ Type=simple
 User=cloud_user
 Group=cloud_user
 PIDFile=/run/jupyter.pid
-ExecStart=/home/cloud_user/.pyenv/versions/3.8.2/bin/jupyter notebook --config=/home/cloud_user/.jupyter/jupyter_notebook_config.py
-WorkingDirectory=/home/cloud_user/notebooks
+ExecStartPre=/usr/bin/mkdir -p /home/cloud_user/notebooks
+ExecStart=/home/cloud_user/.pyenv/versions/3.8.2/bin/jupyter-notebook --config=/home/cloud_user/.jupyter/jupyter_notebook_config.py
 Restart=always
 RestartSec=10
 
